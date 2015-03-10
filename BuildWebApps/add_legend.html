@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <title>Add a Legend</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+
+  <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
+  <style>
+    html,body,#mapDiv,.map.container{
+      padding:0;
+      margin:0;
+      height:100%;
+    }
+    .legendContainer{
+      position: absolute;
+      top:20px;
+      right:30px;
+      z-index:20;
+      border-radius: 4px;
+      background-color: #fff;
+      padding:4px;
+    }
+    .esriLegendServiceLabel{
+      white-space: nowrap;
+    }
+  </style>
+  <script src="http://js.arcgis.com/3.13/"></script>
+  <script>
+    
+    require([
+      "esri/map",
+      "esri/arcgis/utils",
+      "esri/dijit/Legend",
+      "esri/urlUtils",
+      "dojo/domReady!"
+      ], function (Map, arcgisUtils, Legend, urlUtils) {
+        var webmapid = "24e01ef45d40423f95300ad2abc5038a";
+        var urlObject = urlUtils.urlToObject(document.location.href);
+        if(urlObject.query && urlObject.query.webmap){
+          webmapid = urlObject.query.webmap;
+        }
+        arcgisUtils.createMap(webmapid, "mapDiv").then(function (response) {
+    
+          var legend = new Legend({
+            map: response.map,
+            layerInfos: arcgisUtils.getLegendLayers(response)
+          }, "legendDiv");
+          legend.startup();
+
+       });
+    });
+  </script>
+
+  </head>
+
+  <body>
+    <div id="mapDiv"></div>
+    <div class="legendContainer">
+      <div id="legendDiv"></div>
+    </div>
+  </body>
+  </html>

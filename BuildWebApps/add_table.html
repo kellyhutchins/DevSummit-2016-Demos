@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <title>Add a Table</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+  <link rel="stylesheet" href="//js.arcgis.com/3.13/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
+  <style>
+    html,body,#mapDiv,.map.container{
+      padding:0;
+      margin:0;
+      height:100%;
+    }
+    .tableContainer{
+      position: absolute;
+      bottom:0px;
+      margin:auto;
+      z-index:20;
+      border-radius: 4px;
+      background-color: #fff;
+      padding:4px;
+      height:200px;
+      width:100%;
+    }
+
+  </style>
+  <script src="http://js.arcgis.com/3.13/"></script>
+  <script>
+    
+    require([
+      "esri/map",
+      "esri/arcgis/utils",
+      "esri/dijit/FeatureTable",
+      "dojo/_base/array",
+      "dojo/domReady!"
+      ], function (Map, arcgisUtils, FeatureTable, array) {
+        var webmapid = "24e01ef45d40423f95300ad2abc5038a";
+
+        arcgisUtils.createMap(webmapid, "mapDiv").then(function (response) {
+ 
+          var map = response.map, layer = null;
+          
+          //get the first feature layer in the map  
+          array.some(map.graphicsLayerIds,  function (id) {
+              var l = map.getLayer(id);
+              if (l && l.type === "Feature Layer") {
+                  layer = l;
+                  return true;
+              }
+          });
+
+         if(layer){
+           var table = new FeatureTable({
+              "featureLayer" : layer,
+              "map" : map
+           }, "tableDiv");
+
+          table.startup();
+         }
+
+       });
+    });
+  </script>
+
+  </head>
+
+  <body class="claro">
+    <div id="mapDiv"></div>
+    <div class="tableContainer">
+      <div id="tableDiv"></div>
+    </div>
+  </body>
+  </html>
