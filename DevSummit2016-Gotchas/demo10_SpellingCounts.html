@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Demo 10</title>
+
+    <!-- Reference CSS stylesheets -->
+    <link rel="stylesheet" href="http://js.arcgis.com/3.16/dijit/themes/nihilo/nihilo.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.16/esri/css/esri.css">
+    <link rel="stylesheet" href="css/demo9.css"/>
+	
+    <!-- Configure dojo for asynchronous module loading -->
+    <script>
+        var dojoConfig = {
+            async: true
+        };
+    </script>
+
+	  <!-- Load the JS API from CDN -->
+    <script src="http://js.arcgis.com/3.16/"></script>
+	
+	  <!-- Load application specific JS file -->
+    <script src="js/demo10.js"></script>
+  </head>
+  <body class="nihilo">
+    <div id="bcMain" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'sidebar', liveSplitters:'true'">
+      <div id="cpLeading" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:'true', region:'leading'">
+        <div id="divLegend">
+        </div>
+      </div>
+      <div id="cpCenter" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+        <div id="BasemapToggle"></div>
+      </div>
+    </div>
+  </body>
+</html>

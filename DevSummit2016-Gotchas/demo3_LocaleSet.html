@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- 
+Broken Code - Language set on html tag 
+
+Broken - <html lang="en">
+Fixed - <html>
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Demo 3</title>
+
+    <!--
+	 ! Reference CSS stylesheets. 
+	 !  First CSS is a Dojo theme that gives dijits a consistent style. 
+	 !  Second CSS is the ArcGIS JS API required stylesheet
+	 !  Third CSS is the application specific style sheet
+	-->
+    <link rel="stylesheet" href="http://js.arcgis.com/3.16/dijit/themes/nihilo/nihilo.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.16/esri/css/esri.css">
+    <link rel="stylesheet" href="css/demo1.css"/>
+	
+    <!-- Configure dojo for asynchronous module loading -->
+    <script>
+        var dojoConfig = {
+            async: true
+        };
+    </script>
+
+	<!-- Load the JS API from CDN -->
+    <script src="http://js.arcgis.com/3.16/"></script>
+	
+	<!-- Load application specific JS file -->
+    <script src="js/demo1.js"></script>
+	
+</head>
+<body class="nihilo">
+  <div id="bcMain" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'sidebar', liveSplitters:'true'">
+    <div id="cpLeading" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:'true', region:'leading'">
+      <div id="divLegend"></div>
+    </div>
+
+    <div id="cpCenter" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+      <div style="position:absolute; right:20px; top:10px; z-Index:999;">
+        <div data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Switch Basemap', closable:false, open:false">
+          <div data-dojo-type="dijit/layout/ContentPane" style="width:380px; height:280px; overflow:auto;">
+            <div id="basemapGallery"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

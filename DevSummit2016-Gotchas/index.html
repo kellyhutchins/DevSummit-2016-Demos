@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Developer Summit 2016 | JavaScript Debugging | Preventable Errors</title>
+
+    <style>
+      body {
+        font-family: tahoma, arial, geneva, helvetica, sans-serif;
+        color: #555555;
+        margin-left: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>JavaScript API Preventable Errors</h1>
+    </header>
+
+    <div id="samples">
+    <h3>Examples</h3>
+      <ul>
+        <li><a href="demo1_UsingFileAccess.html" target="jsSamplesTab">Demo 1 &#151; Using file:// access</a> <small>[HTML]</small></li>
+        <li><a href="demo2a_MissingEsriCSS.html" target="jsSamplesTab">Demo 2A &#151; Missing required Esri CSS</a> <small>[HTML]</small></li>
+        <li><a href="demo2b_MissingDojoCSS.html" target="jsSamplesTab">Demo 2B &#151; Missing required Dojo CSS</a> <small>[HTML]</small></li>
+        <li><a href="demo3_LocaleSet.html" target="jsSamplesTab">Demo 3 &#151; Language set</a> <small>[HTML]</small></li>
+        <li><a href="demo4_TrailingComma.html" target="jsSamplesTab">Demo 4 &#151; Trailing comma</a> <small>[JS]</small></li>
+        <li><a href="demo5_MissingRequiredModule.html" target="jsSamplesTab">Demo 5 &#151; Missing required module</a> <small>[JS]</small></li>
+        <li><a href="demo6_RequireDisorder.html" target="jsSamplesTab">Demo 6 &#151; Different order in module and alias lists</a> <small>[JS]</small></li>
+        <li><a href="demo7_NoParser.html" target="jsSamplesTab">Demo 7 &#151; No dojo/parser</a> <small>[JS]</small></li>
+        <li><a href="demo8_ReadyDojoReady.html" target="jsSamplesTab">Demo 8 &#151; dojo/domReady! vs. dojo/ready</a> <small>[HTML]</small></li>
+        <li><a href="demo9_ProvideTheExpected.html" target="jsSamplesTab">Demo 9 &#151; Provide what is expected</a> <small>[JS]</small></li>
+        <li><a href="demo10_SpellingCounts.html" target="jsSamplesTab">Demo 10 &#151; Spelling counts</a> <small>[JS]</small></li>
+<!--
+        <li><a href="" target="jsSamplesTab">Demo x &#151; </a></li>
+  -->
+    </ul>
+
+    <h3>Notes</h3>
+
+    <p><strong>Demo 1</strong> &#151; A web server is required when developing with the JavaScript API. Launching an application in your browser using the file protocol (file://) can result in runtime errors. Error message indicates an issue in the JS API code.</p>
+
+    <p><strong>Demo 2</strong> &#151; The esri.css file is a required application component. Failing to include it doesn't result in an application error, but does result in faulty execution.</p>
+    
+    <p>Building applications which include Dojo functionality in the HTML also requires adding one of Dojo's CSS stylesheets and setting the body tag's class attribute to the Dojo class. The code will execute without error, but the application will not include the requested Dojo functionality.</p>
+
+    <p><strong>Demo 3</strong> &#151; Setting the language attribute in the HTML tag (&lt;html lang="en"&gt;) results in an error in the JS API. The page loads but not in the expected way.</p>
+
+    <p><strong>Demo 4</strong> &#151; Trailing comma at the end of the require alias list results in a syntax error. Error reported in the console.</p>
+
+    <p><strong>Demo 5</strong> &#151; Missing module in require results in a reference error, constructor class not defined.</p>
+
+    <p><strong>Demo 6</strong> &#151; Modules not listed in the same order can generate unusual results.</p>
+
+    <p><strong>Demo 7</strong> &#151; Failing to run the Dojo parser when declaratively implementing dijits results in unexpected results. No error in the console.</p>
+
+    <p><strong>Demo 8</strong> &#151; Creates a dijit tabbed UI and loads maps into separate tabs. First map fails to load, but second and third do. No errors in the console.</p>
+
+    <p><strong>Demo 9</strong> &#151; Layers are not added to the map when failing to provide the appropriate parameter to the addLayers method. No error in the console.</p>
+
+    <p><strong>Demo 10</strong> &#151; Legend is added to the application but doesn't appear. JavaScript is case sensitive. Legend doesn't load when byId method is misspelled. No error in the console.</p>
+<!--
+    <p><strong>Demo </strong> &#151; </p>
+  -->
+    
+    </div>
+</body>
+</html>

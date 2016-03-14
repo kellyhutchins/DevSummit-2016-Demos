@@ -1,0 +1,23 @@
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        background-color: #feffff;
+        overflow: hidden;
+        font-family: "Trebuchet MS", "Tahoma", sans-serif;
+        margin: 2%;
+      }
+      
+      #mapContainer {
+        width: 80%; 
+        height: 80%; 
+        margin: 5px
+      }
+      
+      #map1, #map2, #map3 {
+      }
+
